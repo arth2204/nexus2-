@@ -314,3 +314,11 @@ img, video, svg, iframe { max-width: 100%; }
 @media (max-width: 599px) {
   .bnr-guarantee { flex-direction: column; text-align: center; padding: 22px 16px; }
 }
+
+/* Contador de pessoas ao vivo (igual ao da Bruttus) */
+.live-visitors { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-size: clamp(12.5px, 3.4vw, 13.5px); color: var(--muted); line-height: 1.3; }
+.live-pulse-dot { position: relative; width: 9px; height: 9px; border-radius: 50%; background: var(--success); flex: none; box-shadow: 0 0 6px rgba(34, 195, 93, .6); }
+.live-pulse-dot::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--success); animation: live-radar 2.2s cubic-bezier(.2, .6, .35, 1) infinite; }
+@keyframes live-radar { 0% { transform: scale(1); opacity: .85; } 70%, 100% { transform: scale(2.8); opacity: 0; } }
+[data-live-count] { color: var(--heading); font-weight: 800; display: inline-block; transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), color .2s; }
+[data-live-count].bump { transform: scale(1.25); color: var(--success-text); }

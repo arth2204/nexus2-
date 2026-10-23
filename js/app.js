@@ -39,6 +39,25 @@
   $$("[data-map]").forEach((f) => (f.src = `https://maps.google.com/maps?q=${mapQ}&z=17&output=embed`));
   $$("[data-map-link]").forEach((a) => (a.href = `https://www.google.com/maps/search/?api=1&query=${mapQ}`));
 
+  /* ---------- Contador de pessoas ao vivo (mesma lógica da Bruttus) ---------- */
+  const liveEl = $("[data-live-count]");
+  if (liveEl) {
+    let live = Math.floor(Math.random() * 7) + 22; // começa entre 22 e 28
+    liveEl.textContent = live;
+    const liveTick = () => {
+      const deltas = [-2, -1, -1, 1, 1, 2, 2, -2, 3];
+      let delta = deltas[Math.floor(Math.random() * deltas.length)];
+      if (live >= 33) delta = -Math.abs(delta) || -1;
+      if (live <= 18) delta = Math.abs(delta) || 1;
+      live = Math.max(16, Math.min(38, live + delta));
+      liveEl.classList.add("bump");
+      liveEl.textContent = live;
+      setTimeout(() => liveEl.classList.remove("bump"), 300);
+      setTimeout(liveTick, Math.floor(Math.random() * 3500) + 4000);
+    };
+    setTimeout(liveTick, Math.floor(Math.random() * 2000) + 3500);
+  }
+
   /* ---------- Bloqueio de scroll de fundo (iOS/Mobile) ---------- */
   let scrollYLock = 0, activeOverlays = 0;
   const lockBodyScroll = () => {
