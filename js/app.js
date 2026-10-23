@@ -387,8 +387,20 @@
     e.preventDefault();
     if (!texture) { $("[data-tex-warn]").hidden = false; $("[data-textures]").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
     const url = e.currentTarget.href;
-    if (url && !url.endsWith("#")) window.location.href = url;
+    trackInitiateCheckout();
+    // pequena espera para o evento do Pixel sair antes de trocar de página
+    if (url && !url.endsWith("#")) setTimeout(() => (window.location.href = url), 220);
   });
+
+  /* Meta Pixel: InitiateCheckout no botão que leva ao checkout (mesmo evento,
+     sem parâmetros, e mesma trava de 800ms do "Confirmar ✓" do site atual) */
+  let lastCheckoutFired = 0;
+  function trackInitiateCheckout() {
+    const now = Date.now();
+    if (now - lastCheckoutFired < 800) return;
+    lastCheckoutFired = now;
+    try { if (typeof window.fbq === "function") window.fbq("track", "InitiateCheckout"); } catch (_) {}
+  }
 
   /* ---------- Listas ---------- */
   $("[data-highlights]").innerHTML = S.highlights.map((h) => `<li>${icon("check")}<span>${esc(h)}</span></li>`).join("");
