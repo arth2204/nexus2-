@@ -169,19 +169,5 @@ window.STORE = {
     { name: "Fernando Gomes", city: "Fortaleza, CE", car: "Chevrolet Tracker 2022", stars: 5, date: "2026-02-22", avatar: "images/avaliacoes/fernando.webp", photo: "images/clientes/fernando.webp", text: "Aqui chove muito e sempre entrava lama. Desde que coloquei acabou o problema. Entrega rápida!" },
     { name: "Juliana Bastos", city: "Porto Alegre, RS", car: "Jeep Compass 2023", stars: 5, date: "2026-04-01", avatar: "images/avaliacoes/juliana.webp", photo: "images/clientes/juliana.webp", text: "Tenho cachorro e o carro ficava cheio de pelo. Agora é só tirar e lavar. Parece peça original!" },
     { name: "Paulo Lopes", city: "Campinas, SP", car: "Chery Tiggo 7 2024", stars: 5, date: "2026-04-08", avatar: "images/avaliacoes/paulo.webp", photo: "images/clientes/trunk.webp", text: "Porta-malas ficou 100% protegido. Encaixe perfeito, parece peça original. Recomendo demais!" }
-  ],
-
-  /* Aviso "fulano comprou" (mesma lista do site atual). */
-  salesNotifications: [
-    ["João M.", "Curitiba, PR", "Kit Interno + Porta-Malas", "há 2 minutos"],
-    ["Mariana S.", "São Paulo, SP", "Kit Tapetes Interno", "há 5 minutos"],
-    ["Ricardo A.", "Belo Horizonte, MG", "Kit Interno + Caçamba", "há 8 minutos"],
-    ["Patrícia L.", "Florianópolis, SC", "Kit Interno + Porta-Malas", "há 11 minutos"],
-    ["Carlos E.", "Porto Alegre, RS", "Kit Tapetes Interno", "há 14 minutos"],
-    ["Fernanda R.", "Rio de Janeiro, RJ", "Kit Interno + Porta-Malas", "há 18 minutos"],
-    ["Lucas P.", "Goiânia, GO", "Kit Interno + Caçamba", "há 22 minutos"],
-    ["Juliana B.", "Campinas, SP", "Kit Tapetes Interno", "há 27 minutos"],
-    ["André T.", "Salvador, BA", "Kit Interno + Porta-Malas", "há 33 minutos"],
-    ["Camila O.", "Fortaleza, CE", "Kit Interno + Porta-Malas", "há 41 minutos"]
   ]
 };

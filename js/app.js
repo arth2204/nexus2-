@@ -3,7 +3,7 @@
    e window.NX_VEHICLES (vehicles.js)
    Seções: utilitários · textos · modais · galeria/lightbox · veículo ·
    ofertas · CEP · confirmar pedido · listas · segurança · avaliações ·
-   vídeos · antes/depois · contagem · menu · barra fixa · aviso de compra ·
+   vídeos · antes/depois · contagem · menu · barra fixa ·
    animação de entrada
    ===================================================================== */
 (function () {
@@ -631,24 +631,6 @@
     scrollToEl(vehicleOk() ? $("[data-offers]") : ofertas);
     mainBuy.classList.remove("attention"); void mainBuy.offsetWidth; mainBuy.classList.add("attention");
   }));
-
-  /* ---------- Aviso "fulano comprou" (mesma lista e ritmo do site atual) ---------- */
-  const toast = $("[data-sale-toast]");
-  const SN = S.salesNotifications || [];
-  if (toast && SN.length) {
-    let i = 0, stopped = false;
-    const show = () => {
-      if (stopped) return;
-      const [who, city, what, when] = SN[i % SN.length]; i++;
-      setAll("[data-st-who]", `${who} de ${city}`);
-      setAll("[data-st-what]", what);
-      setAll("[data-st-when]", `Compra verificada · ${when}`);
-      toast.classList.add("show");
-      setTimeout(() => { toast.classList.remove("show"); setTimeout(() => setTimeout(show, 9000), 600); }, 5500);
-    };
-    setTimeout(show, 6000);
-    $("[data-st-close]").onclick = () => { stopped = true; toast.classList.remove("show"); };
-  }
 
   /* ---------- Animação de entrada ao rolar ---------- */
   if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
