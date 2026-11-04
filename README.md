@@ -49,7 +49,7 @@ a textura e a observação aparecem só na tela: o checkout não recebe esses da
 
 ## Pixels
 Mesmos do site atual:
-- Meta Pixel `2298845797620394`: PageView ao abrir a página (index e políticas) e InitiateCheckout
+- Meta Pixel `1475275251177446`: PageView ao abrir a página (index e políticas) e InitiateCheckout
   sem parâmetros no clique de **Finalizar pagamento** (equivale ao "Confirmar ✓" antigo), com trava
   de 800ms contra clique duplo. Só dispara com a textura escolhida; espera 220ms antes de ir ao checkout.
 - UTMify (mesma tag) + script de preservação de UTMs.
