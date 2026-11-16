@@ -411,13 +411,12 @@
     if (url && !url.endsWith("#")) setTimeout(() => (window.location.href = url), 220);
   });
 
-  /* Meta Pixel: InitiateCheckout no botão que leva ao checkout (mesmo evento,
-     sem parâmetros, e mesma trava de 800ms do "Confirmar ✓" do site atual) */
-  let lastCheckoutFired = 0;
+  /* Meta Pixel: InitiateCheckout só no botão "Finalizar pagamento",
+     no máximo 1 vez por visita à página (cliques repetidos não disparam de novo) */
+  let checkoutFired = false;
   function trackInitiateCheckout() {
-    const now = Date.now();
-    if (now - lastCheckoutFired < 800) return;
-    lastCheckoutFired = now;
+    if (checkoutFired) return;
+    checkoutFired = true;
     try { if (typeof window.fbq === "function") window.fbq("track", "InitiateCheckout"); } catch (_) {}
   }
 
